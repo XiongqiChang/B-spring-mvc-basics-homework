@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: xqc
@@ -21,10 +22,23 @@ public class UserRepository {
         return users;
     }
 
-
     public void addUser(User build) {
-
         users.add(build);
+    }
+
+    public User getUser(String username) {
+
+        users.stream().forEach(item->{
+            if (item.getUsername().equals(username)){
+                System.out.println(item);
+            }
+        });
+
+        List<User> collect = users.stream().filter(item ->
+            item.getUsername().equals(username)
+        ).collect(Collectors.toList());
+
+        return collect.get(0);
 
     }
 }

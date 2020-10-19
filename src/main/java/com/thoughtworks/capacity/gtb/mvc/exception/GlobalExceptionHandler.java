@@ -43,4 +43,9 @@ public class GlobalExceptionHandler {
         Error error = new Error(400,message);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
+    @ExceptionHandler(LoginException.class)
+    public ResponseEntity<Error> handle(LoginException e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getError());
+    }
 }

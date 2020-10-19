@@ -19,14 +19,12 @@ import javax.validation.constraints.*;
 @Builder
 public class UserDto {
 
-    @Min(3)
-    @Max(10)
-    @Pattern(regexp = "^/w+$",message = "用户名不合法")
+    @Size(min = 3, max = 10)
+    @Pattern(regexp = "^\\w+$", message = "用户名不合法的")
     @NotNull(message = "用户名称不合法")
     private String username;
 
-    @Min(5)
-    @Max(12)
+    @Size(min = 5, max = 12,message = "密码不合法")
     @NotNull(message = "密码不合法")
     private String password;
 
