@@ -28,12 +28,6 @@ public class UserRepository {
 
     public User getUser(String username) {
 
-        users.stream().forEach(item->{
-            if (item.getUsername().equals(username)){
-                System.out.println(item);
-            }
-        });
-
         List<User> collect = users.stream().filter(item ->
             item.getUsername().equals(username)
         ).collect(Collectors.toList());
