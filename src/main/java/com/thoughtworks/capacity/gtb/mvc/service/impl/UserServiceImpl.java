@@ -8,8 +8,6 @@ import com.thoughtworks.capacity.gtb.mvc.repository.UserRepository;
 import com.thoughtworks.capacity.gtb.mvc.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 /**
  * @Author: xqc
  * @Date: 2020/10/19 - 10 - 19 - 21:30
@@ -32,7 +30,9 @@ public class UserServiceImpl implements UserService {
         if (isExist){
             throw  new DumplicatedUserException(400,"用户已经存在");
         }
-        User build = User.builder().userId(UUID.randomUUID()).email(userDto.getEmail()).password(userDto.getPassword())
+
+        int  id = (int)(Math.random()*100);
+        User build = User.builder().userId(id).email(userDto.getEmail()).password(userDto.getPassword())
                 .username(userDto.getUsername()).build();
         userRepository.addUser(build);
 

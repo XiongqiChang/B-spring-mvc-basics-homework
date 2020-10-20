@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 /**
  * @Author: xqc
  * @Date: 2020/10/19 - 10 - 19 - 21:16
@@ -18,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class User {
-    private UUID userId;
+    private Integer userId;
 
     private String username;
 
